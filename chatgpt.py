@@ -205,8 +205,7 @@ async def bard_bot(bot, message):
         else:
             a = message.text.split(' ', 1)[1]
             response=bard.get_answer(f"{a}")["content"]
-            await message.reply_text(f"Asᴋᴇᴅ Bʏ:{message.from_user.first_n
-ame}\n\nQυeѕтιoɴ ιѕ : **{a}**\n\nS⃟ᴏʟᴏ ᴛʀᴇᴇ ᴀɴꜱᴡᴇʀᴇᴅ:-\n\n{response}\n\n✨ᴘᴏᴡᴇʀᴇᴅ ʙʏ @{BOT_USERNAME}", parse_mode=ParseMode.MARKDOWN,reply_markup=InlineKeyboardMarkup(X))     
+            await message.reply_text(f"Asᴋᴇᴅ Bʏ:{message.from_user.first_name}\n\nQυeѕтιoɴ ιѕ : **{a}**\n\nS⃟ᴏʟᴏ ᴛʀᴇᴇ ᴀɴꜱᴡᴇʀᴇᴅ:-\n\n{response}\n\n✨ᴘᴏᴡᴇʀᴇᴅ ʙʏ @{BOT_USERNAME}", parse_mode=ParseMode.MARKDOWN,reply_markup=InlineKeyboardMarkup(X))     
     except Exception as e:
         await message.reply_text(f"**ᴇʀʀᴏʀ:  {e} ")
 
