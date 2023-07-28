@@ -22,7 +22,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 
 
-@Mukesh.on_message(~filters.edited & filters.incoming & filters.private, group=-1)
+@Client.on_message(~filters.edited & filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     if not "https://t.me/cczza":  # Not compulsory
         return
@@ -56,7 +56,7 @@ logging.basicConfig(
 
 
 StartTime = time.time()
-Mukesh = Client(
+Client = Client(
     "chat-gpt" ,
     api_id = API_ID,
     api_hash = API_HASH ,
@@ -139,7 +139,7 @@ HELP_BACK = [
 
   
 #         start
-@Mukesh.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
+@Client.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
 async def start(client, m: Message):
     try:
         accha = await m.reply_text(
@@ -161,7 +161,7 @@ async def start(client, m: Message):
     except Exception as y:
         await m.reply(y)
 #  callback 
-@Mukesh.on_callback_query()
+@Client.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
     if query.data == "HELP":
      await query.message.edit_text(
@@ -173,18 +173,18 @@ async def cb_handler(Client, query: CallbackQuery):
                   reply_markup=InlineKeyboardMarkup(MAIN),
         )
     
-@Mukesh.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["","+", ".", "/", "-", "?", "$"]))
+@Client.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["","+", ".", "/", "-", "?", "$"]))
 async def restart(client, message):
     hmm = await message.reply_photo(START_IMG,
                         caption=HELP_READ,
                         reply_markup= InlineKeyboardMarkup(HELP_BACK),
        )
-@Mukesh.on_message(filters.command(['sourooce', 'repooo'], prefixes=["","+", ".", "/", "-", "?", "$"]))
+@Client.on_message(filters.command(['sourooce', 'repooo'], prefixes=["","+", ".", "/", "-", "?", "$"]))
 async def source(bot, m):
     
     await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS)
 #  alive
-@Mukesh.on_message(filters.command(["ping","alive"], prefixes=["+", "/", "-", "?", "$", "&","."]))
+@Client.on_message(filters.command(["ping","alive"], prefixes=["+", "/", "-", "?", "$", "&","."]))
 async def ping(client, message: Message):
         start = datetime.now()
         t = "ριиgιиg..."
@@ -203,7 +203,7 @@ async def ping(client, message: Message):
 
 #  main   
 openai.api_key = OPENAI_KEY
-@Mukesh.on_message(filters.command(["chatgpt","ai","aksk"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
+@Client.on_message(filters.command(["chatgpt","ai","aksk"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
 async def chat(bot, message):
     
     try:
@@ -227,7 +227,7 @@ async def chat(bot, message):
 #  bard 
 
 bard = Bard(token=BARD_TOKEN)   
-@Mukesh.on_message(filters.command(["bard","ask"]))
+@Client.on_message(filters.command(["bard","ask"]))
 async def bard_bot(bot, message):
     try:
         start_time = time.time()
@@ -244,7 +244,7 @@ async def bard_bot(bot, message):
 
     
 openai.api_key = OPENAI_KEY
-@Mukesh.on_message(filters.command(["image","photo","img","generate"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"] ))
+@Client.on_message(filters.command(["image","photo","img","generate"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"] ))
 async def chat(bot, message):
     try:
         start_time = time.time()
@@ -262,7 +262,7 @@ async def chat(bot, message):
     except Exception as e:
             await message.reply_text(f"**ᴇʀʀᴏʀ: **  ` {e} `")
 openai.api_key = OPENAI_KEY
-@Mukesh.on_message(filters.command(["text","audiototext","lyrics"],  prefixes=["","+", ".", "/", "-", "?", "$","#","&"]))
+@Client.on_message(filters.command(["text","audiototext","lyrics"],  prefixes=["","+", ".", "/", "-", "?", "$","#","&"]))
 async def chat(bot, message):
     
     try:
@@ -293,7 +293,7 @@ if __name__ == "__main__":
     print(f""" {BOT_NAME} ɪs ᴀʟɪᴠᴇ!
     """)
     try:
-        Mukesh.start()
+        Client.start()
         
         
     except (ApiIdInvalid, ApiIdPublishedFlood):
