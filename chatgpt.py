@@ -8,7 +8,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.enums import ChatAction, ParseMode
 import openai
 from pyrogram.types import CallbackQuery
-from config import 
+from config import *
 import os,sys,re,requests
 import asyncio,time
 from random import choice
