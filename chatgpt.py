@@ -22,7 +22,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 
 
-@Client.on_message(~filters.incoming & filters.private, group=-1)
+@Client.on_message(~filters.edited & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     if not "https://t.me/cczza":  # Not compulsory
         return
