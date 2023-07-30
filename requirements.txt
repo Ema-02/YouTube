@@ -6,3 +6,8 @@ tgcrypto
 asyncio
 openai==0.27.2
 bardapi
+TgCrypto
+Pyrogram
+youtube-dl
+youtube_search
+requests
