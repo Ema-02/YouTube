@@ -1,5 +1,5 @@
 # © TamilBots 2021-22
-
+from pyrogram import Client
 from pyrogram import Client, filters
 from pyrogram.types import (
     InlineKeyboardButton,
