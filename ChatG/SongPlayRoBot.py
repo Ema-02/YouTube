@@ -13,7 +13,7 @@ import os
 
 
 ## Extra Fns -------------------------------
-
+bot = Client("my_bot")
 # Convert hh:mm:ss to seconds
 def time_to_seconds(time):
     stringt = str(time)
