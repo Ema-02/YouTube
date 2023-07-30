@@ -13,7 +13,7 @@ app = Client(
     api_hash=config.API_HASH,
     bot_token=config.BOT_TOKEN,
     in_memory=True,
-    plugins={'root':'chatgpt.py'},
+    plugins={'root':'ChatG'},
 )
 
 
