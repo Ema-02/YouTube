@@ -19,19 +19,6 @@ import logging
 # telegram: @bbnnQ ~ My channel: @ccooR حقوق.
 
 
-FORMAT = "[LEGEND-MUKESH] %(message)s"
-logging.basicConfig(
-    level=logging.WARNING, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-
-
-StartTime = time.time()
-Client = Client(
-    "chat-gpt" ,
-    api_id = API_ID,
-    api_hash = API_HASH ,
-    bot_token = BOT_TOKEN
-)
 START = f"""
 ๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}
 ➻ ᴀɴ ᴏᴘᴇɴ-ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛɢᴘᴛ.
