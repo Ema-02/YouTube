@@ -13,8 +13,7 @@ import os
 
 
 ## Extra Fns -------------------------------
-bot = Client("my_bot")
-await Start.start()
+
 # Convert hh:mm:ss to seconds
 def time_to_seconds(time):
     stringt = str(time)
@@ -103,5 +102,3 @@ def a(client, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
-
-bot.run()
