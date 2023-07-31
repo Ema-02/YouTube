@@ -5,8 +5,6 @@ import yt_dlp
 from pyrogram import filters
 from youtube_search import YoutubeSearch
 
-from pyrogram import SUPPORT_CHAT
-
 
 def time_to_seconds(time):
     stringt = str(time)
