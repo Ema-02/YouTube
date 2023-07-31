@@ -61,7 +61,7 @@ async def ytmusic(client, message: Message):
     url = mo
     sedlyf = wget.download(kekme)
     opts = {
-        "format": "(bestvideo[height<=?1080][width<=?1920])",
+        "format": "best",
         "addmetadata": True,
         "key": "FFmpegMetadata",
         "prefer_ffmpeg": True,
