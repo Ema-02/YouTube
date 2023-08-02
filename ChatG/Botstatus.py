@@ -1,6 +1,6 @@
 import psutil
 import time
-from pyrogram import app as Client
+from pyrogram import Client
 from pyrogram import filters 
 from pyrogram.types import Message
 
