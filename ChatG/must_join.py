@@ -19,10 +19,10 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"You must join [this channel]({link}) to use me. After joining try again !",
+                    f"'🚧 ғɪʀsᴛ ᴊᴏɪɴ ᴛʜᴇ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⚠️\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\n[S⃟ᴏʟᴏ ᴛʀᴇᴇ]({link})\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\nᴛᴏ ᴜsᴇ ᴍᴇ. Aғᴛᴇʀ ᴊᴏɪɴɪɴɢ ᴛʀʏ ᴀɢᴀɪɴ !",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("✨ Join Channel ✨", url=link)]
+                        [InlineKeyboardButton("✨ Jᴏɪɴ ᴄʜᴀɴɴᴇʟ  ✨", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
