@@ -10,7 +10,7 @@ async def must_join_channel(bot: Client, msg: Message):
         return
     try:
         try:
-            userid = message.from_user.id 
+            userid = message.from_user.id 
             user_name = message.from_user.first_name
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
         except UserNotParticipant:
