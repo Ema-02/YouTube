@@ -10,6 +10,8 @@ async def must_join_channel(bot: Client, msg: Message):
         return
     try:
         try:
+            userid = message.from_user.id 
+            user_name = message.from_user.first_name
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
         except UserNotParticipant:
             if MUST_JOIN.isalpha():
@@ -19,7 +21,7 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"'🚧 ғɪʀsᴛ ᴊᴏɪɴ ᴛʜᴇ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⚠️\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\n⌯︙W⃟ᴇʟᴄᴏᴍᴇ :[{msg.from_user.id}](tg://user?id={message.from_user.id})\n⌯︙🏝️ **ʙᴏᴛ ᴄʜᴀɴɴᴇʟ :** ||[S⃟ᴏʟᴏ ᴛʀᴇᴇ]({link})||\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\nᴛᴏ ᴜsᴇ ᴍᴇ. Aғᴛᴇʀ ᴊᴏɪɴɪɴɢ ᴛʀʏ ᴀɢᴀɪɴ !",
+                    f"'🚧 ғɪʀsᴛ ᴊᴏɪɴ ᴛʜᴇ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⚠️\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\n⌯︙W⃟ᴇʟᴄᴏᴍᴇ :[{message.from_user.first_name}](tg://user?id={message.from_user.id})\n⌯︙🏝️ **ʙᴏᴛ ᴄʜᴀɴɴᴇʟ :** ||[S⃟ᴏʟᴏ ᴛʀᴇᴇ]({link})||\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\nᴛᴏ ᴜsᴇ ᴍᴇ. Aғᴛᴇʀ ᴊᴏɪɴɪɴɢ ᴛʀʏ ᴀɢᴀɪɴ !",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
                         [InlineKeyboardButton("✨ Jᴏɪɴ ᴄʜᴀɴɴᴇʟ  ✨", url=link)]
