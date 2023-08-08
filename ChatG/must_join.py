@@ -22,9 +22,9 @@ async def must_join_channel(bot: Client, msg: Message):
                     f"**🚧 ғɪʀsᴛ ᴊᴏɪɴ ᴛʜᴇ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⚠️**\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\n⌯︙**W⃟ᴇʟᴄᴏᴍᴇ :[{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n⌯︙🏝️ **ʙᴏᴛ ᴄʜᴀɴɴᴇʟ :** [S⃟ᴏʟᴏ ᴛʀᴇᴇ](https://t.me/solotreee)\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                                   [InlineKeyboardButton("Button 1", callback_data="button1")],
-        [InlineKeyboardButton("Button 2", callback_data="button2")]
-                    ]
+                                   [InlineKeyboardButton("✨ Join Channel ✨", url=link)]
+                    ])
+                )
             await msg.stop_propagation()
             except ChatWriteForbidden:
                 pass
