@@ -23,7 +23,7 @@ async def must_join_channel(bot: Client, msg: Message):
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
                                [InlineKeyboardButton(text="🍁ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ🍂", url="t.me/solotreee")], 
-     [InlineKeyboardButton(text="〄╏ᴄʜᴀᴛ ɢᴘᴛ╏ᴀɪ🧞", url="t.me/Chatgptasking_bot")]])
+                               [InlineKeyboardButton(text="🍁ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ🍂", url="t.me/solotreee")]
                 await msg.stop_propagation()
             except ChatWriteForbidden:
                 pass
