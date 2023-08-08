@@ -19,12 +19,11 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"You must join [this channel]({link}) to use me. After joining try again !",
+                    f"**🚧 ғɪʀsᴛ ᴊᴏɪɴ ᴛʜᴇ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⚠️**\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\n⌯︙**W⃟ᴇʟᴄᴏᴍᴇ :[{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n⌯︙🏝️ **ʙᴏᴛ ᴄʜᴀɴɴᴇʟ :** [S⃟ᴏʟᴏ ᴛʀᴇᴇ](https://t.me/solotreee)\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("✨ Join Channel ✨", url=link)]
-                    ])
-                )
+                            [InlineKeyboardButton(text="🍁ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ🍂", url="t.me/solotreee")], 
+                            [InlineKeyboardButton(text="〄╏ᴄʜᴀᴛ ɢᴘᴛ╏ᴀɪ🧞", url="t.me/Chatgptasking_bot")]])
                 await msg.stop_propagation()
             except ChatWriteForbidden:
                 pass
