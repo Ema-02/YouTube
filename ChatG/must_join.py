@@ -8,10 +8,9 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForb
 async def must_join_channel(bot: Client, msg: Message):
     if not MUST_JOIN:  # Not compulsory
         return
-        try:
-    userid = message.from_user.id
-    user_name = message.from_user.first_name
-        await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
+    try:
+        try:
+            await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
         except UserNotParticipant:
             if MUST_JOIN.isalpha():
                 link = "https://t.me/" + MUST_JOIN
@@ -20,10 +19,10 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"'🚧 ғɪʀsᴛ ᴊᴏɪɴ ᴛʜᴇ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⚠️\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\n⌯︙W⃟ᴇʟᴄᴏᴍᴇ :[{message.from_user.first_name}](tg://user?id={message.from_user.id})\n⌯︙🏝️ **ʙᴏᴛ ᴄʜᴀɴɴᴇʟ :** ||[S⃟ᴏʟᴏ ᴛʀᴇᴇ]({link})||\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\nᴛᴏ ᴜsᴇ ᴍᴇ. Aғᴛᴇʀ ᴊᴏɪɴɪɴɢ ᴛʀʏ ᴀɢᴀɪɴ !",
+                    f"You must join [this channel]({link}) to use me. After joining try again !",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("✨ Jᴏɪɴ ᴄʜᴀɴɴᴇʟ  ✨", url=link)]
+                        [InlineKeyboardButton("✨ Join Channel ✨", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
