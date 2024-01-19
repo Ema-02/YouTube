@@ -12,8 +12,8 @@ SQL = c("virus")
 db = SQL["main"]
 db.create_table()
 
-@bot.on_message(filters.private & filters.text)
-async def main(bot, msg):
+@Client.on_message(filters.private & filters.text)
+async def main(bot: Client, msg):
 	if msg.text == "/start":
 		await bot.send_message(msg.chat.id, f"• مرحبا بك 《 {msg.from_user.mention} 》\n\n• في بوت اليوتيوب الاول علي التليجرام\n• يدعم التحميل حتي 2GB")
 	if msg.text != "/start" and not re.findall(r"(.*?)dl(.*?)", msg.text):
@@ -44,7 +44,7 @@ async def main(bot, msg):
 		await wait.delete()
 
 @bot.on_callback_query(filters.regex("&&") , group = 24)
-async def download(bot, query: CallbackQuery) :
+async def download(bot: Client, query: CallbackQuery) :
 	video_id = query.data.split("&&")[1]
 	if query.data.split("&&")[0] == "video":
 		await bot.delete_messages(query.message.chat.id, query.message.id)
@@ -153,4 +153,4 @@ async def download(bot, query: CallbackQuery) :
 			await wait.delete()
 
 print("اشتغل")
-bot.run()
+Client.run()
