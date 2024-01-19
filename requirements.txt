@@ -1,3 +1,6 @@
+requests
+dnspython
+tgcrypto
 aiofiles
 aiohttp
 asyncio
