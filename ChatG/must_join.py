@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 
 
-@Client.on_message(filters.incoming & filters.private, group=-1)
+@bot.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     if not MUST_JOIN:  # Not compulsory
         return
@@ -19,10 +19,10 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"🚧 ғɪʀsᴛ ᴊᴏɪɴ ᴛʜᴇ ʙᴏᴛ ᴄʜᴀɴɴᴇʟ ⚠️\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\n⌯︙🏝️ **ʙᴏᴛ ᴄʜᴀɴɴᴇʟ :** ||[S⃟ᴏʟᴏ ᴛʀᴇᴇ]({link})||\n┉───┈┈╌╍╌┄┈───┉┉───┈┈╌\nᴛᴏ ᴜsᴇ ᴍᴇ. Aғᴛᴇʀ ᴊᴏɪɴɪɴɢ ᴛʀʏ ᴀɢᴀɪɴ !!",
+                    f"- أضغط على الزر في الأسفل للأشتراك في القناة 🤍",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("✨ Join Channel ✨", url=link)]
+                        [InlineKeyboardButton("‹ فَلسفة مشاعر ›", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
