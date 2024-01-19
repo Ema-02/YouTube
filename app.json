@@ -1,77 +1,43 @@
 {
-    "name": "Chat-Gpt",
-    "description": "A Telegram open-ai Chatgpt bot.",
-    "logo": "https://te.legra.ph/file/9fa2101b77407dbec7d31.jpg",
-    "keywords": [
+  "name": "YouTube-Downloader",
+  "description": "A Telegrambot to download youtube video",
+  "repository": "https://github.com/tgbot-collection/ytdlbot",
+  "logo": "https://avatars.githubusercontent.com/u/73354211?s=200&v=4",
+  "keywords": [
     "telegram",
-    "chatgpt",
-    "python",
-    "pyrogram",
-    "Noob-Mukesh",   
-        
+    "youtube-dl"
   ],
-    "buildpacks": [{
-    "url": "heroku/python"
-  }],
-  "repository": "https://github.com/noob-mukesh/Chatgpt-bot",
-    "env": {
-        "BOT_TOKEN": {
-            "description": "telegram bot token here",
-            "required": true
-        },  
-        "OWNER_USERNAME": {
-            "description": "Owner Username without @",
-            "required": true
-        },    
-        "OPENAI_KEY": {
-            "description":"OPEN-AI key here: extract from https://platform.openai.com/account/api-keys",
-            "required": true
-        },
-        "BARD_TOKEN": {
-            "description":"BARD_TOKEN key here: extract from https://bard.google.com/",
-            "required": true
-        },
-        "BOT_USERNAME": {
-            "description": "telegram bot username here without @",
-            "required": true
-        },
-        "BOT_NAME": {
-            "description": "Simple Bot-name. Do not use Modified Text..",
-            "required": true
-        },
-        
-        "SUPPORT_GRP": {
-            "description": "Your Support Group without @",
-            "required": true
-        },
-        "STKR": {
-            "description": "Sticker for start ",
-            "required": true
-        },
-        "START_IMG": {
-            "description": "Start Image For Bot.",
-            "required": true
-        },
-        "UPDATE_CHNL": {
-            "description": "Your Updates Channel without @",
-            "required": true
-        },
-        "SUPPORT_GRP": {
-            "description": "Your Support Group without @",
-            "required": true
-        },
-        "API_ID": {
-            "description": "telegram api id here",
-            "required": true
-        },
-        "API_HASH": {
-            "description": "telegram api hash here",
-            "required": true
-        }
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Bot token",
+      "value": "token"
     },
-    "addons": [
-        {
-            "plan": "heroku-postgresql"
-        }
-    ]
+    "API_ID": {
+      "description": "APP ID",
+      "value": "12345"
+    },
+    "API_HASH": {
+      "description": "APP HASH",
+      "value": "12345abc"
+    },
+    "OWNER": {
+      "description": "Your telegram username",
+      "value": "username",
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ]
 }
