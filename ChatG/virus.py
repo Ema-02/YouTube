@@ -5,8 +5,8 @@ from pytube import YouTube
 from asSQL import Client as c
 import os, re, yt_dlp, asyncio, wget, asSQL
 
-save_id = int(-1001464246740) # ايدي القناه
-user = "" # يوزر القناه
+save_id = int(-1002144428010) # ايدي القناه
+user = "@bbnnq" # يوزر القناه
 ####
 SQL = c("virus")
 db = SQL["main"]
