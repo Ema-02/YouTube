@@ -43,7 +43,7 @@ async def main(bot: Client, msg):
 		)
 		await wait.delete()
 
-@bot.on_callback_query(filters.regex("&&") , group = 24)
+@Client.on_callback_query(filters.regex("&&") , group = 24)
 async def download(bot: Client, query: CallbackQuery) :
 	video_id = query.data.split("&&")[1]
 	if query.data.split("&&")[0] == "video":
