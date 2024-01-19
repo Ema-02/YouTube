@@ -1,3 +1,6 @@
+aiofiles
+aiohttp
+asyncio
 pyrogram
 yt_dlp
 wget
