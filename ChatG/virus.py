@@ -11,12 +11,7 @@ user = "" # يوزر القناه
 SQL = c("virus")
 db = SQL["main"]
 db.create_table()
-bot = Client(
-        "youtube",
-        api_id = 9028013,
-        api_hash = "cc894fc40424f9c8bbcf06b7355bd69d",
-        bot_token = "" # توكنك
-)
+
 @bot.on_message(filters.private & filters.text)
 async def main(bot, msg):
 	if msg.text == "/start":
@@ -67,11 +62,11 @@ async def download(bot, query: CallbackQuery) :
 			video=video,
 			duration=information.length,
 			thumb=thumb,
-			caption="By : @V_IRUuS")
+			caption="By : @Chkstribot")
 			db.set(f"{video_id}&video", int(msg.id))
 			await bot.send_video(query.message.chat.id,
 			video=f"https://t.me/{user}/{msg.id}",
-			caption="By : @V_IRUuS")
+			caption="By : @Chkstribot")
 			await wait.delete()
 			try :
 				os.remove(video)
@@ -83,7 +78,7 @@ async def download(bot, query: CallbackQuery) :
 			msg_id = int(db.get(f"{video_id}&video"))
 			await bot.send_video(query.message.chat.id,
 			video=f"https://t.me/{user}/{msg_id}",
-			caption="By : @V_IRUuS")
+			caption="By : @Chkstribot")
 			await wait.delete()
 
 	if query.data.split("&&")[0] == "audio":
@@ -100,7 +95,7 @@ async def download(bot, query: CallbackQuery) :
 			await wait.edit("⬆️ جاري الرفع ....")
 			msg = await bot.send_audio(save_id,
 			audio=audio,
-			caption="By : @V_IRUuS",
+			caption="By : @Chkstribot",
 			title=information.title,
 			duration=information.length,
 			thumb=thumb,
@@ -108,7 +103,7 @@ async def download(bot, query: CallbackQuery) :
 			db.set(f"{video_id}&audio", int(msg.id))
 			await bot.send_audio(query.message.chat.id,
 			audio=f"https://t.me/{user}/{msg.id}",
-			caption="By : @V_IRUuS")
+			caption="By : @Chkstribot")
 			await wait.delete()
 			try:
 				os.remove(audio)
@@ -120,7 +115,7 @@ async def download(bot, query: CallbackQuery) :
 			msg_id = int(db.get(f"{video_id}&audio"))
 			await bot.send_audio(query.message.chat.id,
 			audio=f"https://t.me/{user}/{msg_id}",
-			caption="By : @V_IRUuS")
+			caption="By : @Chkstribot")
 			await wait.delete()
 	if query.data.split("&&")[0] == "voice":
 		await bot.delete_messages(query.message.chat.id, query.message.id)
@@ -136,12 +131,12 @@ async def download(bot, query: CallbackQuery) :
 			await wait.edit("⬆️ جاري الرفع ....")
 			msg = await bot.send_voice(save_id,
 			voice=voice,
-			caption="By : @V_IRUuS",
+			caption="By : @Chkstribot",
 			duration=information.length)
 			db.set(f"{video_id}&voice", int(msg.id))
 			await bot.send_voice(query.message.chat.id,
 			voice=f"https://t.me/{user}/{msg.id}",
-			caption="By : @V_IRUuS",
+			caption="By : @Chkstribot",
 			duration=information.length)
 			await wait.delete()
 			try:
@@ -154,7 +149,7 @@ async def download(bot, query: CallbackQuery) :
 			msg_id = int(db.get(f"{video_id}&voice"))
 			await bot.send_voice(query.message.chat.id,
 			voice=f"https://t.me/{user}/{msg_id}",
-			caption="By : @V_IRUuS")
+			caption="By : @Chkstribot")
 			await wait.delete()
 
 print("اشتغل")
