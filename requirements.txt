@@ -1,10 +1,6 @@
-pyrogram==2.0.106
-requests
-dnspython
-tgcrypto
-asyncio
-openai==0.27.2
-bardapi
-TgCrypto
-youtube-dl
-youtube_search
+pyrogram
+yt_dlp
+wget
+asSQL
+youtube-search-python
+pytube
