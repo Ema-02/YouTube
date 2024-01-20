@@ -1,3 +1,6 @@
+## Rights of the developer Ahmed, do not mess with me and do not change my rights if you want to steal
+## Contact me on Telegram @z_o_i , my channel : @cczza
+
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from youtubesearchpython import VideosSearch
