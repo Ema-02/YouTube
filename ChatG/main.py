@@ -7,7 +7,7 @@ import os, re, yt_dlp, asyncio, wget
 @Client.on_message(filters.private & filters.text)
 async def main(bot: Client, msg):
 	if msg.text == "/start":
-		await bot.send_message(msg.chat.id, f"- مرحبا بك{msg.from_user.mention}\n- في بوت التحميل من اليوتيوب 🎙️\n- أرسل لي أسم الأغنية فقط 🔎")
+		await bot.send_message(msg.chat.id, f"👋┇أهلاً بك عزيزي {msg.from_user.mention}\n‹ في بوت التحميل من اليوتيوب 🎙️\n‹ فقط أرسل لي أسم الفيديو أو الأغنية 🔎")
 	if msg.text != "/start" and not re.findall(r"(.*?)dl(.*?)", msg.text):
 		wait = await bot.send_message(msg.chat.id, f'🔎︙البحث عن "{msg.text}"...')
 		search = VideosSearch(msg.text).result()
