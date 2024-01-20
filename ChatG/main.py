@@ -10,7 +10,7 @@ import os, re, yt_dlp, asyncio, wget
 @Client.on_message(filters.private & filters.text)
 async def main(bot: Client, msg):
 	if msg.text == "/start":
-		await bot.send_message(msg.chat.id, f"👋┇أهلاً بك عزيزي {msg.from_user.mention}\n‹ في بوت التحميل من اليوتيوب 🎙️\n‹ فقط أرسل لي أسم الفيديو أو الأغنية 🔎")
+		await bot.send_message(msg.chat.id, f"‹ أهلاً بك عزيزي {msg.from_user.mention}\n‹ في بوت التحميل من اليوتيوب 🎙️\n‹ فقط أرسل لي أسم الفيديو أو الأغنية 🔎")
 	if msg.text != "/start" and not re.findall(r"(.*?)dl(.*?)", msg.text):
 		wait = await bot.send_message(msg.chat.id, f'🔎︙البحث عن "{msg.text}"...')
 		search = VideosSearch(msg.text).result()
@@ -30,7 +30,7 @@ async def main(bot: Client, msg):
 		keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("مقطع فيديو 🎞",callback_data=f"video&&{vid_id}"),InlineKeyboardButton("ملف صوتي 📼",callback_data=f"audio&&{vid_id}")]])
 		await bot.send_photo(msg.chat.id,
 		photo=f"https://youtu.be/{vid_id}",
-		caption=f"🎬 [{info.title}](https://youtu.be/{vid_id})\n👤 {info.author}\n👁 {info.views}",
+		caption=f"🎬 الأسم [{info.title}](https://youtu.be/{vid_id})\n👤 القناة: {info.author}\n👁 المشاهدات : {info.views}",
 		reply_markup=keyboard
 		)
 		await wait.delete()
