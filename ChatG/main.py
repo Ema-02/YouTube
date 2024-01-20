@@ -30,7 +30,7 @@ async def main(bot: Client, msg):
 		keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("مقطع فيديو 🎞",callback_data=f"video&&{vid_id}"),InlineKeyboardButton("ملف صوتي 📼",callback_data=f"audio&&{vid_id}")]])
 		await bot.send_photo(msg.chat.id,
 		photo=f"https://youtu.be/{vid_id}",
-		caption=f"🎬 الأسم [{info.title}](https://youtu.be/{vid_id})\n👤 القناة: {info.author}\n👁 المشاهدات : {info.views}",
+		caption=f"🎬 الأسم: [{info.title}](https://youtu.be/{vid_id})\n👤 القناة: {info.author}\n👁 المشاهدات: {info.views}",
 		reply_markup=keyboard
 		)
 		await wait.delete()
@@ -48,7 +48,7 @@ async def download(bot: Client, query: CallbackQuery) :
 			ytdl.process_info(info)
 		information = YouTube(video_link)
 		thumb = wget.download(information.thumbnail_url)
-		await wait.edit("⬆️ جاري الرفع ....")
+		await wait.edit("- يتم الرفع ...")
 		await bot.send_video(query.message.chat.id,
 		video=video,
 		duration=information.length,
@@ -71,7 +71,7 @@ async def download(bot: Client, query: CallbackQuery) :
 			ytdl.process_info(info)
 		information = YouTube(video_link)
 		thumb = wget.download(information.thumbnail_url)
-		await wait.edit("- أنتظر جار الرفع ..")
+		await wait.edit("- أنتظر جار الرفع ...")
 		await bot.send_audio(query.message.chat.id,
 		audio=audio,
 		caption=f"By : @Chkstribot",
