@@ -151,6 +151,3 @@ async def download(bot: Client, query: CallbackQuery) :
 			voice=f"https://t.me/{user}/{msg_id}",
 			caption="By : @Chkstribot")
 			await wait.delete()
-
-print("اشتغل")
-Client.run()
