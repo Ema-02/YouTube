@@ -3,7 +3,7 @@ aiohttp
 asyncio
 pyrogram
 yt_dlp
-wge
+wget
 asSQL
 youtube-search-python
 pytube
