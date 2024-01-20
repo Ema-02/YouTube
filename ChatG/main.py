@@ -4,17 +4,10 @@ from youtubesearchpython import VideosSearch
 from pytube import YouTube
 import os, re, yt_dlp, asyncio, wget
 
-bot = Client(
-        "youtube",
-        api_id = 9028013,
-        api_hash = "cc894fc40424f9c8bbcf06b7355bd69d",
-        bot_token = "" # توكنك
-)
-
-@bot.on_message(filters.private & filters.text)
-async def main(bot, msg):
+@Client.on_message(filters.private & filters.text)
+async def main(bot: Client, msg):
 	if msg.text == "/start":
-		await bot.send_message(msg.chat.id, f"• مرحبا بك 《 {msg.from_user.mention} 》\n\n• في بوت اليوتيوب الاول علي التليجرام\n• يدعم التحميل حتي 2GB")
+		await bot.send_message(msg.chat.id, f"- مرحبا بك{msg.from_user.mention}\n- في بوت التحميل من اليوتيوب 🎙️\n- أرسل لي أسم الأغنية فقط 🔎")
 	if msg.text != "/start" and not re.findall(r"(.*?)dl(.*?)", msg.text):
 		wait = await bot.send_message(msg.chat.id, f'🔎︙البحث عن "{msg.text}"...')
 		search = VideosSearch(msg.text).result()
@@ -39,12 +32,12 @@ async def main(bot, msg):
 		)
 		await wait.delete()
 
-@bot.on_callback_query(filters.regex("&&") , group = 24)
-async def download(bot, query: CallbackQuery) :
+@Client.on_callback_query(filters.regex("&&") , group = 24)
+async def download(bot: Client, query: CallbackQuery) :
 	video_id = query.data.split("&&")[1]
 	if query.data.split("&&")[0] == "video":
 		await bot.delete_messages(query.message.chat.id, query.message.id)
-		wait = await bot.send_message(query.message.chat.id, "🚀 جار التحميل ....")
+		wait = await bot.send_message(query.message.chat.id, "- جار التحميل ...")
 		video_link = f"https://youtu.be/{video_id}"
 		with yt_dlp.YoutubeDL({"format": "best","keepvideo": True,"prefer_ffmpeg": False,"geo_bypass": True,"outtmpl": "%(title)s.%(ext)s","quite": True}) as ytdl:
 			info = ytdl.extract_info(video_link, download=False)
@@ -57,7 +50,7 @@ async def download(bot, query: CallbackQuery) :
 		video=video,
 		duration=information.length,
     	thumb=thumb,
-		caption=f"By : @V_IRUuS"
+		caption=f"By : @Chkstribot"
 		)
 		await wait.delete()
 		try :
@@ -67,7 +60,7 @@ async def download(bot, query: CallbackQuery) :
 			pass
 	if query.data.split("&&")[0] == "audio":
 		await bot.delete_messages(query.message.chat.id, query.message.id)
-		wait = await bot.send_message(query.message.chat.id, "🚀 جار التحميل ....")
+		wait = await bot.send_message(query.message.chat.id, "- جار التحميل ...")
 		video_link = f"https://youtu.be/{video_id}"
 		with yt_dlp.YoutubeDL({"format": "bestaudio[ext=m4a]"}) as ytdl:
 			info = ytdl.extract_info(video_link, download=False)
@@ -75,10 +68,10 @@ async def download(bot, query: CallbackQuery) :
 			ytdl.process_info(info)
 		information = YouTube(video_link)
 		thumb = wget.download(information.thumbnail_url)
-		await wait.edit("⬆️ جاري الرفع ....")
+		await wait.edit("- أنتظر جار الرفع ..")
 		await bot.send_audio(query.message.chat.id,
 		audio=audio,
-		caption=f"By : @V_IRUuS",
+		caption=f"By : @Chkstribot",
 		title=information.title,
     	duration=information.length,
     	thumb=thumb,
@@ -90,5 +83,3 @@ async def download(bot, query: CallbackQuery) :
 			os.remove(thumb)
 		except:
 			pass
-print("اشتغل غور")
-bot.run()
