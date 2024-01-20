@@ -1,12 +1,8 @@
-requests
-dnspython
-tgcrypto
 aiofiles
 aiohttp
 asyncio
 pyrogram
 yt_dlp
 wget
-asSQL
 youtube-search-python
 pytube
