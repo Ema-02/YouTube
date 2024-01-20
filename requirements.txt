@@ -3,6 +3,10 @@ aiohttp
 asyncio
 pyrogram
 yt_dlp
-wget
+wge
+asSQL
 youtube-search-python
 pytube
+requests
+dnspython
+tgcrypto
