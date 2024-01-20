@@ -30,7 +30,7 @@ async def main(bot: Client, msg):
 		keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("مقطع فيديو 🎞",callback_data=f"video&&{vid_id}"),InlineKeyboardButton("ملف صوتي 📼",callback_data=f"audio&&{vid_id}")]])
 		await bot.send_photo(msg.chat.id,
 		photo=f"https://youtu.be/{vid_id}",
-		caption=f"🎬 الأسم: [{info.title}](https://youtu.be/{vid_id})\n👤 القناة: {info.author}\n👁 المشاهدات: {info.views}",
+		caption=f"🎬 Name: [{info.title}](https://youtu.be/{vid_id})\n👤 Channel: {info.author}\n👁 Views: {info.views}",
 		reply_markup=keyboard
 		)
 		await wait.delete()
